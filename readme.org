@@ -1,0 +1,11 @@
+This repository contains various scripts related to building and deploying
+Common Lisp projects.
+
+* Nyxt .deb archive
+
+The [[.github/workflows/release.yaml]] file was used by
+https://github.com/atlas-engineer/nyxt to produce a =.deb= archive.
+
+A particularity of this archive is that it features a =nyxt= binary that embeds
+some required static libraries (like [[https://github.com/sionescu/libfixposix][libfixposix]]) that may not be present on the
+target system.
