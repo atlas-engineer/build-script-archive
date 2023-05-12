@@ -1,11 +1,27 @@
 This repository contains various scripts related to building and deploying
 Common Lisp projects.
 
-* Nyxt .deb archive
+At some point of its history [[https://github.com/atlas-engineer/nyxt][Nyxt]] has used these script to produce =.deb= and
+=.rpm= archives.
 
-The [[.github/workflows/release.yaml]] file was used by
-https://github.com/atlas-engineer/nyxt to produce a =.deb= archive.
-
-A particularity of this archive is that it features a =nyxt= binary that embeds
+A particularity of these archives is that they feature a =nyxt= binary that embeds
 some required static libraries (like [[https://github.com/sionescu/libfixposix][libfixposix]]) that may not be present on the
 target system.
+
+* Nyxt .deb archive
+
+See the following files:
+- [[.github/workflows/release.yaml]]: GitHub CI driver (with as little code as possible).
+- build-ubuntu-package.sh: The actual build.
+- nyxt-ubuntu-package.asd: The [[https://gitlab.com/ralt/linux-packaging][linux-packaging]] system used by the above script.
+
+* Nyxt .rpm archive
+
+This is an almost-working-attempt at generating an RPM package for Fedora.
+See https://github.com/atlas-engineer/nyxt/pull/1359.
+
+See the following files:
+- [[.github/workflows/package-fedora.yml]]: GitHub CI driver (as little code as possible).
+- build-fedora-package.sh: The actual build.
+- Dockerfile: The (most likely flawed) Docker script used by the above script.
+- nyxt-fedora-package.asd: The [[https://gitlab.com/ralt/linux-packaging][linux-packaging]] system used by the above script.
